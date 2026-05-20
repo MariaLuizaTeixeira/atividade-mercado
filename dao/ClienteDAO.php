@@ -1,9 +1,10 @@
 <?php 
 
+namespace DAO;
 use Model\Cliente;
+use Util\Conexao;
 
 class ClienteDAO {
-
     private PDO $conexao;
 
     public function __construct() {

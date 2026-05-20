@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+namespace DAO;
 use Model\Funcionario;
 
 class FuncionarioDAO {

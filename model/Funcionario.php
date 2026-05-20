@@ -1,9 +1,7 @@
 <?php
 
 namespace Model;
-
 use Enums\Cargo;
-use Model\Usuario;
 
 class Funcionario extends Usuario {
     private Cargo $cargo;

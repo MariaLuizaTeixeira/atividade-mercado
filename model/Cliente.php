@@ -2,8 +2,6 @@
 
 namespace Model;
 
-use Model\Usuario;
-
 class Cliente extends Usuario {
     private string $endereco;
 

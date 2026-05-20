@@ -1,7 +1,6 @@
 <?php
 
 namespace Enums;
-
 enum Setor {
     case HigieneLimpeza;
     case Hortifruti;

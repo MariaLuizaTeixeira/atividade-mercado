@@ -1,7 +1,6 @@
 <?php
 
 namespace Enums;
-
 enum Cargo {
     case OperadorCaixa;
     case Empacotador;
