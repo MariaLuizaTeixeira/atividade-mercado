@@ -1,5 +1,6 @@
 <?php
 
+namespace Util;
 class Conexao {
 
     private static ?PDO $conexao = null;
@@ -8,8 +9,6 @@ class Conexao {
         if (self::$conexao == null) {
             //Criar a conexao
             $opcoes = array(
-                //Define o charset da conexão
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
                 //Define o tipo do erro como exceção
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 //Define o tipo do retorno das consultas
@@ -18,9 +17,9 @@ class Conexao {
 
             self::$conexao =
                 new PDO(
-                    "mysql:host=localhost;dbname=mercado",
-                    "root",
-                    "bancodedados",
+                    DB_SGBD . ":host=" . DB_HOST . ";dbname=" . DB_NAME,
+                    DB_USER,
+                    DB_PASSWORD,
                     $opcoes
                 );
         }
