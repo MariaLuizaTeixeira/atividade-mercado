@@ -14,12 +14,13 @@
         <div class="sign-up-image">
             <img src="../assets/images/grocery-bag.webp">
         </div>
-    </div>
-
-    <div class="form-container">
-        <div class="form-heading">
-            <h1 class="form-title">Cadastre-se</h1>
-            <p class="form-subtitle">As melhores ofertas estão a um cadastro de distância</p>
+        <div class="form-container">
+            <div class="form-heading">
+                <h1 class="form-title">Cadastre-se</h1>
+                <p class="form-subtitle">As melhores ofertas estão a um cadastro de distância</p>
+            </div>
         </div>
     </div>
+
+
 </body>
