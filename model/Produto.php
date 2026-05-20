@@ -1,8 +1,9 @@
 <?php
 
 namespace Model;
-
+use Cassandra\Date;
 use Enums\Setor;
+use Enums\StatusEstoque;
 
 class Produto {
     private int $id;
@@ -10,6 +11,11 @@ class Produto {
     private string $descricao;
     private Setor $setor;
     private float $preco;
+    private Date $validade;
+    private string $peso;
+    private string $marca;
+    private string $quantidadeEstoque;
+    private StatusEstoque $status;
     private string $imagem;
 
     public function getId(): int
@@ -83,6 +89,54 @@ class Produto {
 
         return $this;
     }
-}
 
-?>
+    public function getValidade(): Date
+    {
+        return $this->validade;
+    }
+
+    public function setValidade(Date $validade): void
+    {
+        $this->validade = $validade;
+    }
+
+    public function getPeso(): string
+    {
+        return $this->peso;
+    }
+
+    public function setPeso(string $peso): void
+    {
+        $this->peso = $peso;
+    }
+
+    public function getMarca(): string
+    {
+        return $this->marca;
+    }
+
+    public function setMarca(string $marca): void
+    {
+        $this->marca = $marca;
+    }
+
+    public function getStatus(): StatusEstoque
+    {
+        return $this->status;
+    }
+
+    public function setStatus(StatusEstoque $status): void
+    {
+        $this->status = $status;
+    }
+
+    public function getQuantidadeEstoque(): string
+    {
+        return $this->quantidadeEstoque;
+    }
+
+    public function setQuantidadeEstoque(string $quantidadeEstoque): void
+    {
+        $this->quantidadeEstoque = $quantidadeEstoque;
+    }
+}
