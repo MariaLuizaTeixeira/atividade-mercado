@@ -5,6 +5,39 @@ namespace Model;
 abstract class Usuario {
     protected int $id;
     protected string $nomeCompleto;
+    protected string $email;
+    protected string $senha;
+    protected string $telefone;
+
+    public function getTelefone(): string
+    {
+        return $this->telefone;
+    }
+
+    public function setTelefone(string $telefone): void
+    {
+        $this->telefone = $telefone;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getSenha(): string
+    {
+        return $this->senha;
+    }
+
+    public function setSenha(string $senha): void
+    {
+        $this->senha = $senha;
+    }
 
     public function getId(): int
     {

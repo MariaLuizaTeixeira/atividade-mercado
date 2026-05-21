@@ -19,9 +19,9 @@ class FuncionarioDAO {
     }
 
     public function criar(Funcionario $funcionario): void {
-        $sql = "INSERT INTO funcionarios (id, nome_completo, cargo) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO funcionarios (id, nome_completo, cargo, email, senha_hash, telefone) VALUES (?, ?, ?, ?, ?, ?)";
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$funcionario->getId(), $funcionario->getNomeCompleto(), $funcionario->getCargo()]);
+        $stm->execute([$funcionario->getId(), $funcionario->getNomeCompleto(), $funcionario->getCargo()], $funcionario->getEmail(), $funcionario->getSenha(), $funcionario->getTelefone());
     }
 
     public function deletar(int $id): void {

@@ -19,9 +19,9 @@ class ClienteDAO {
     }
 
     public function criar(Cliente $cliente): void {
-        $sql = "INSERT INTO clientes (id, nome_completo, endereco) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO clientes (id, nome_completo, endereco, email, senha_hash, telefone) VALUES (?, ?, ?, ?, ?, ?)";
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$cliente->getId(), $cliente->getNomeCompleto(), $cliente->getEndereco()]);
+        $stm->execute([$cliente->getId(), $cliente->getNomeCompleto(), $cliente->getEndereco()], $cliente->getEmail(), $cliente->getSenha(), $cliente->getTelefone());
     }
 
     public function deletar(int $id): void {
