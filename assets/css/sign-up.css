@@ -68,7 +68,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(-120px);
+    transform: translateY(-20px);
+}
+
+.form-heading,
+.form-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.form-title,
+.form-subtitle {
+    margin-left: 0;
 }
 
 .register-form input:not([type="checkbox"]) {
@@ -80,7 +91,20 @@ body {
 .form-fields {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 18px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-group p {
+    margin: 8px 0;
+}
+
+.input-row .field-group {
+    flex: 1;
 }
 
 .input-row {
@@ -133,6 +157,7 @@ body {
 
 .text-contrast {
     color: #FFD400;
+    text-decoration: none;
 }
 
 .submit-form {
@@ -173,7 +198,35 @@ body {
     white-space: nowrap;
 }
 
-.app img {
+.register-apps {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.register-apps button {
+    border-radius: 10px;
+    border: 1px solid #8A8A8A;
+    align-items: center;
+}
+
+.app-button {
     height: 50px;
-    width: 50px;
+    width: 200px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 10px;
+}
+
+.google-image {
+    height: 20px;
+    width: 20px;
+}
+
+.apple-image {
+    height: 25px;
+    width: 20px;
+    margin-bottom: 1px;
 }
