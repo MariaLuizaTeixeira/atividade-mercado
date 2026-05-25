@@ -4,6 +4,7 @@
     <title>Página de login</title>
 
     <link rel="stylesheet" href="../../assets/css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                     <button class="submit-form">Login</button>
 
                     <div class="already-signed-in">
-                        <p>Não tem uma conta? Faça seu<a href="sign-up.php" class="text-contrast"><b> cadastro</b></a></p>
+                        <p>Não tem uma conta?<a href="sign-up.php" class="text-contrast"><b> Cadastre-se</b></a></p>
                     </div>
 
                     <div class="divider">

@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Página de cadastro</title>
 
     <link rel="stylesheet" href="../../assets/css/sign-up.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
