@@ -85,14 +85,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $msgErro = implode("<br>", $msgs);
     }
 }
+
+include_once __DIR__ . '/../components/header.php';
 ?>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Página de cadastro</title>
-
     <link rel="stylesheet" href="../../assets/css/sign-up.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
 </head>
 
 <body>
@@ -146,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <p>Senha</p>
                             <div class="password-container">
                                 <input type="password" placeholder="Digite uma senha" class="full-width" name="senha" id="senha">
-                                <button type="button" class="toggle-password"> <img src="../../assets/images/visibility-off.svg"> </button>
+                                <button type="button" class="toggle-password"> <img src="../../assets/images/icons/visibility-off.svg"> </button>
                             </div>
                         </div>
 
@@ -154,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <p>Confirme senha</p>
                             <div class="password-container">
                                 <input type="password" placeholder="Digite sua senha novamente" class="full-width" name="confirmar-senha" id="confirmar-senha">
-                                <button type="button" class="toggle-password"> <img src="../../assets/images/visibility-off.svg"> </button>
+                                <button type="button" class="toggle-password"> <img src="../../assets/images/icons/visibility-off.svg"> </button>
                             </div>
                         </div>
                     </div>

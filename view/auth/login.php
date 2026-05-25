@@ -1,10 +1,10 @@
-<?php ?>
-<head>
-    <meta charset="UTF-8">
-    <title>Página de login</title>
+<?php
+include_once __DIR__ . '/../components/header.php';
+?>
 
+<head>
     <link rel="stylesheet" href="../../assets/css/login.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-container">
-            <form class="register-form" action="login.php">
+            <form class="register-form" action="../home/home.php">
                 <div class="form-fields">
                     <div class="input-row">
                         <div class="field-group">
@@ -34,7 +34,7 @@
                         <p>Senha</p>
                         <div class="password-container">
                             <input type="password" placeholder="Insira sua senha" class="full-width" name="confirmarSenha" id="confirmarSenha">
-                            <button type="button" class="toggle-password"> <img src="../../assets/images/visibility-off.svg"> </button>
+                            <button type="button" class="toggle-password"> <img src="../../assets/images/icons/visibility-off.svg"> </button>
                         </div>
                     </div>
                 </div>
