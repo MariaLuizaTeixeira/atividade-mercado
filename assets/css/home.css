@@ -1,0 +1,132 @@
+.categories-container {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #dfe7e2;
+    border-bottom: 1px solid #dfe7e2;
+    padding: 18px 40px;
+    overflow-x: hidden;
+    margin-bottom: 5px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 48px;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    overflow-x: hidden;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    background: transparent;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #1f2937;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.category:hover {
+    color: #16a34a;
+    transform: translateY(-1px);
+}
+
+.category-icon {
+    font-size: 10px;
+}
+
+.hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 60px 80px;
+    background-color: #B85C38;
+    min-height: 480px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    min-height: 82vh;
+}
+
+.hero-banner-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+    max-width: 560px;
+    z-index: 1;
+}
+
+.hero-banner-title h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.hero-banner-paragraph p {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.hero-banner-button button {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #166534;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 36px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-banner-button button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.hero-banner-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-banner-image img {
+    width: 100%;
+    max-width: 620px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 20px;
+}

@@ -7,11 +7,14 @@
 <header>
     <div class="header-container">
         <div class="logo-container">
-            <img src="../../assets/images/logo.png">
-            <div class="logo-text">
-                <h3>Mercado</h3>
-                <p>Fresh & Fast</p>
-            </div>
+            <a href="../home/home.php">
+                <img src="../../assets/images/logo.png">
+
+                <div class="logo-text">
+                    <h3>Mercado</h3>
+                </div>
+            </a>
+
 
         </div>
 
@@ -24,11 +27,16 @@
 
         <div class="actions-container">
             <div class="user-container">
-                <img src="../../assets/images/icons/user.svg">
-                <p>Conta</p>
+                <a href="../profile/user.php">
+                    <img src="../../assets/images/icons/user.svg">
+                    <p>Conta</p>
+                </a>
+
             </div>
 
-            <div class="cart-container"><img src="../../assets/images/icons/shopping-cart.svg"></div>
+            <div class="cart-container">
+                <a href="../cart/cart.php"><img src="../../assets/images/icons/shopping-cart.svg"></a>
+            </div>
         </div>
     </div>
 </header>
