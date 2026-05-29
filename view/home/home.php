@@ -1,6 +1,13 @@
 <?php
+
+use Controller\ProdutoController;
+
 include_once __DIR__ . '/../components/header.php';
 include_once __DIR__ . '/../layouts/header.php';
+include_once(__DIR__ . '/../../controller/ProdutoController.php');
+
+$produtoController = new ProdutoController();
+$produtos = $produtoController->listarAleatoriamente();
 ?>
 
 <head>
@@ -26,7 +33,7 @@ include_once __DIR__ . '/../layouts/header.php';
             </div>
         </div>
 
-        <div class="hero-banner">
+        <div class="hero-banner-container">
             <div class="hero-banner-texts">
                 <div class="hero-banner-title">
                     <h1>Arraiá de Ofertas chegou!</h1>
@@ -46,8 +53,41 @@ include_once __DIR__ . '/../layouts/header.php';
             </div>
         </div>
 
-        <div class="featured-items">
+        <div class="featured-products-container">
+            <div class="featured-products-text">
+                <div class="featured-products-title">
+                    <h3>Mais Pedidos</h3>
+                </div>
 
+                <div class="featured-products-descriptions">
+                    <p>Os produtos favoritos para receber rápido na sua casa.</p>
+                </div>
+            </div>
+
+            <div class="featured-products-content">
+                <?php foreach($produtos as $produto) : ?>
+
+                <div class="featured-product-card">
+                    <img src="../../assets/images/produtos/<?= $produto['imagem'] ?>">
+
+                    <div class="product-card">
+                        <span class="product-category"><?= $produto['setor'] ?></span>
+
+                        <h2><?= $produto['nome'] ?></h2>
+
+                        <p class="product-description"><?= $produto['descricao'] ?></p>
+
+                        <div class="product-footer">
+                            <span class="product-price">
+                                R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                            </span>
+
+                            <a href="#" class="buy-product-button">+</a>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 </body>
