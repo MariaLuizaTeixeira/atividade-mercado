@@ -2,17 +2,20 @@
 
 namespace DAO;
 use Model\Produto;
+use Util\Conexao;
+use PDO;
+
+require_once __DIR__ . '/../util/Conexao.php';
 
 class ProdutoDAO {
-
-    private PDO $conexao;
+    private ?PDO $conexao;
 
     public function __construct() {
         $this->conexao = Conexao::getConexao();
     }
     
-    public function listar(): array {
-        $sql = "SELECT * FROM produtos";
+    public function listarAleatoriamente(): array {
+        $sql = "SELECT * FROM produtos ORDER BY RANDOM() LIMIT 15";
         $stm = $this->conexao->prepare($sql);
         $stm->execute();
         return $stm->fetchAll();

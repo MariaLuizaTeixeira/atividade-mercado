@@ -2,6 +2,8 @@
 
 namespace Util;
 
+require_once(__DIR__ . "/config.php");
+
 use PDO;
 
 class Conexao {

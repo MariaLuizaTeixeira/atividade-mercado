@@ -4,6 +4,8 @@ namespace Controller;
 use DAO\ProdutoDAO;
 use Model\Produto;
 
+require_once __DIR__ . '/../DAO/ProdutoDAO.php';
+
 class ProdutoController {
     private ProdutoDAO $produtoDAO;
 
@@ -11,8 +13,8 @@ class ProdutoController {
         $this->produtoDAO = new ProdutoDAO();
     }
 
-    public function listar(): array {
-        return $this->produtoDAO->listar();
+    public function listarAleatoriamente(): array {
+        return $this->produtoDAO->listarAleatoriamente();
     }
 
     public function criar(Produto $produto): void {
