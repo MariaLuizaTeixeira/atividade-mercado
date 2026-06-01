@@ -33,4 +33,11 @@ class ProdutoDAO {
         $stm = $this->conexao->prepare($sql);
         $stm->execute([$id]);
     }
+
+    public function acharPorId(int $id): array {
+        $sql = "SELECT * FROM produtos WHERE id = ?";
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$id]);
+        return $stm->fetch();
+    }
 }

@@ -24,4 +24,8 @@ class ProdutoController {
     public function deletar(int $id): void {
         $this->produtoDAO->deletar($id);
     }
+
+    public function acharPorId(int $id): array {
+        return $this->produtoDAO->acharPorId($id);
+    }
 }
