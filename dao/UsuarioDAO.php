@@ -1,10 +1,10 @@
 <?php 
 
 namespace DAO;
-use Model\Cliente;
+use Model\Usuario;
 use Util\Conexao;
 
-class ClienteDAO {
+class UsuarioDAO {
     private PDO $conexao;
 
     public function __construct() {
@@ -12,20 +12,20 @@ class ClienteDAO {
     }
     
     public function listar(): array {
-        $sql = "SELECT * FROM clientes";
+        $sql = "SELECT * FROM usuarios";
         $stm = $this->conexao->prepare($sql);
         $stm->execute();
         return $stm->fetchAll();
     }
 
-    public function criar(Cliente $cliente): void {
-        $sql = "INSERT INTO clientes (id, nome_completo, endereco, email, senha_hash, telefone) VALUES (?, ?, ?, ?, ?, ?)";
+    public function criar(Usuario $usuario): void {
+        $sql = "INSERT INTO usuarios (id, nome_completo, endereco, email, senha_hash, telefone) VALUES (?, ?, ?, ?, ?, ?)";
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$cliente->getId(), $cliente->getNomeCompleto(), $cliente->getEndereco()], $cliente->getEmail(), $cliente->getSenha(), $cliente->getTelefone());
+        $stm->execute([$usuario->getId(), $usuario->getNomeCompleto(), $usuario->getEndereco(), $usuario->getEmail(), $usuario->getSenha(), $usuario->getTelefone()]);
     }
 
     public function deletar(int $id): void {
-        $sql = "DELETE FROM clientes WHERE id = ?";
+        $sql = "DELETE FROM usuarios WHERE id = ?";
     
         $stm = $this->conexao->prepare($sql);
         $stm->execute([$id]);

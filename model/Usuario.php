@@ -2,12 +2,13 @@
 
 namespace Model;
 
-abstract class Usuario {
+class Usuario {
     protected int $id;
     protected string $nomeCompleto;
     protected string $email;
     protected string $senha;
     protected string $telefone;
+    private string $endereco;
 
     public function getTelefone(): string
     {
@@ -59,6 +60,18 @@ abstract class Usuario {
     public function setNomeCompleto(string $nomeCompleto): self
     {
         $this->nomeCompleto = $nomeCompleto;
+
+        return $this;
+    }
+
+    public function getEndereco(): string
+    {
+        return $this->endereco;
+    }
+
+    public function setEndereco(string $endereco): self
+    {
+        $this->endereco = $endereco;
 
         return $this;
     }

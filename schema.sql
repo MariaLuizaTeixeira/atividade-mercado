@@ -17,81 +17,31 @@ CREATE TABLE usuarios (
     nome_completo    TEXT NOT NULL,
     email            TEXT NOT NULL UNIQUE,
     senha_hash       VARCHAR(255) NOT NULL,
-    telefone         TEXT UNIQUE
+    telefone         TEXT UNIQUE,
+    endereco         TEXT
 );
 
-CREATE TABLE funcionarios (
-    id               BIGINT PRIMARY KEY,
-    cargo            TEXT CHECK (cargo IN ('Operador de caixa', 'Empacotador', 'Repositor', 'Atendente de SAC',
-                                            'Padeiro', 'Açougueiro', 'Estoquista', 'Motorista', 'Zelador',
-                                            'Auxiliar administrativo', 'Gerente')),
-
-    CONSTRAINT fk_funcionario_usuario FOREIGN KEY (id) REFERENCES usuarios(id) ON DELETE CASCADE
-);
-
-CREATE TABLE clientes (
-    id               BIGINT PRIMARY KEY,
-    endereco         TEXT,
-
-    CONSTRAINT fk_cliente_usuario FOREIGN KEY (id) REFERENCES usuarios(id) ON DELETE CASCADE
-);
-
-INSERT INTO usuarios (nome_completo, email, senha_hash, telefone)
-VALUES ('Carlos Henrique', 'carlos@mercado.com', 'hash123', '(45)99911-1001'),
-       ('Fernanda Lima', 'fernanda@mercado.com', 'hash123', '(45)99911-1002'),
-       ('João Pedro', 'joao@mercado.com', 'hash123', '(45)99911-1003'),
-       ('Mariana Souza', 'mariana@mercado.com', 'hash123', '(45)99911-1004'),
-       ('Lucas Ribeiro', 'lucas@mercado.com', 'hash123', '(45)99911-1005');
-
-INSERT INTO funcionarios (id, cargo)
-VALUES (1, 'Gerente'),
-       (2, 'Operador de caixa'),
-       (3, 'Repositor'),
-       (4, 'Atendente de SAC'),
-       (5, 'Estoquista');
-
-INSERT INTO usuarios (nome_completo, email, senha_hash, telefone)
-VALUES ('Ana Clara', 'ana@gmail.com', 'hash123', '(45)98888-1001'),
-       ('Pedro Martins', 'pedro@gmail.com', 'hash123', '(45)98888-1002'),
-       ('Julia Santos', 'julia@gmail.com', 'hash123', '(45)98888-1003'),
-       ('Ricardo Alves', 'ricardo@gmail.com', 'hash123', '(45)98888-1004'),
-       ('Larissa Costa', 'larissa@gmail.com', 'hash123', '(45)98888-1005'),
-       ('Felipe Rocha', 'felipe@gmail.com', 'hash123', '(45)98888-1006'),
-       ('Amanda Ferreira', 'amanda@gmail.com', 'hash123', '(45)98888-1007'),
-       ('Gabriel Melo', 'gabriel@gmail.com', 'hash123', '(45)98888-1008'),
-       ('Camila Moura', 'camila@gmail.com', 'hash123', '(45)98888-1009'),
-       ('Thiago Lopes', 'thiago@gmail.com', 'hash123', '(45)98888-1010'),
-       ('Patricia Gomes', 'patricia@gmail.com', 'hash123', '(45)98888-1011'),
-       ('Leonardo Silva', 'leo@gmail.com', 'hash123', '(45)98888-1012'),
-       ('Bruna Castro', 'bruna@gmail.com', 'hash123', '(45)98888-1013'),
-       ('Eduardo Nunes', 'edu@gmail.com', 'hash123', '(45)98888-1014'),
-       ('Vanessa Lima', 'vanessa@gmail.com', 'hash123', '(45)98888-1015'),
-       ('Rafael Duarte', 'rafael@gmail.com', 'hash123', '(45)98888-1016'),
-       ('Isabela Mendes', 'isabela@gmail.com', 'hash123', '(45)98888-1017'),
-       ('Matheus Oliveira', 'matheus@gmail.com', 'hash123', '(45)98888-1018'),
-       ('Beatriz Souza', 'bia@gmail.com', 'hash123', '(45)98888-1019'),
-       ('Vinicius Pereira', 'vinicius@gmail.com', 'hash123', '(45)98888-1020');
-
-INSERT INTO clientes (id, endereco)
-VALUES (6, 'Rua das Flores, 120'),
-       (7, 'Av. Brasil, 455'),
-       (8, 'Rua Paraná, 89'),
-       (9, 'Rua Mato Grosso, 900'),
-       (10, 'Rua Pioneiros, 74'),
-       (11, 'Av. Central, 1500'),
-       (12, 'Rua Primavera, 210'),
-       (13, 'Rua São Paulo, 415'),
-       (14, 'Rua Rio Branco, 58'),
-       (15, 'Rua Tiradentes, 900'),
-       (16, 'Rua das Acácias, 340'),
-       (17, 'Av. das Torres, 775'),
-       (18, 'Rua Bahia, 66'),
-       (19, 'Rua XV de Novembro, 199'),
-       (20, 'Rua das Palmeiras, 871'),
-       (21, 'Av. JK, 542'),
-       (22, 'Rua das Araucárias, 73'),
-       (23, 'Rua Amazonas, 100'),
-       (24, 'Rua dos Lírios, 641'), (25, 'Rua Goiás, 511');
+INSERT INTO usuarios (id, nome_completo, email, senha_hash, telefone, endereco)
+VALUES (1, 'Ana Clara', 'ana@gmail.com', 'hash123', '(45)98888-1001', 'Rua das Flores, 120'),
+       (2, 'Pedro Martins', 'pedro@gmail.com', 'hash123', '(45)98888-1002', 'Av. Brasil, 455'),
+       (3, 'Julia Santos', 'julia@gmail.com', 'hash123', '(45)98888-1003', 'Rua Paraná, 89'),
+       (4, 'Ricardo Alves', 'ricardo@gmail.com', 'hash123', '(45)98888-1004', 'Rua Mato Grosso, 900'),
+       (5, 'Larissa Costa', 'larissa@gmail.com', 'hash123', '(45)98888-1005', 'Rua Pioneiros, 74'),
+       (6, 'Felipe Rocha', 'felipe@gmail.com', 'hash123', '(45)98888-1006', 'Av. Central, 1500'),
+       (7, 'Amanda Ferreira', 'amanda@gmail.com', 'hash123', '(45)98888-1007', 'Rua Primavera, 210'),
+       (8, 'Gabriel Melo', 'gabriel@gmail.com', 'hash123', '(45)98888-1008', 'Rua São Paulo, 415'),
+       (9, 'Camila Moura', 'camila@gmail.com', 'hash123', '(45)98888-1009', 'Rua Rio Branco, 58'),
+       (10, 'Thiago Lopes', 'thiago@gmail.com', 'hash123', '(45)98888-1010', 'Rua Tiradentes, 900'),
+       (11, 'Patricia Gomes', 'patricia@gmail.com', 'hash123', '(45)98888-1011', 'Av. das Torres, 775'),
+       (12, 'Leonardo Silva', 'leo@gmail.com', 'hash123', '(45)98888-1012', 'Rua das Acácias, 340'),
+       (13, 'Bruna Castro', 'bruna@gmail.com', 'hash123', '(45)98888-1013', 'Rua Bahia, 66'),
+       (14, 'Eduardo Nunes', 'edu@gmail.com', 'hash123', '(45)98888-1014', 'Rua XV de Novembro, 199'),
+       (15, 'Vanessa Lima', 'vanessa@gmail.com', 'hash123', '(45)98888-1015', 'Rua das Palmeiras, 871'),
+       (16,'Rafael Duarte', 'rafael@gmail.com', 'hash123', '(45)98888-1016', 'Av. JK, 542'),
+       (17, 'Isabela Mendes', 'isabela@gmail.com', 'hash123', '(45)98888-1017', 'Rua das Araucárias, 73'),
+       (18, 'Matheus Oliveira', 'matheus@gmail.com', 'hash123', '(45)98888-1018', 'Rua Amazonas, 100'),
+       (19, 'Beatriz Souza', 'bia@gmail.com', 'hash123', '(45)98888-1019', 'Rua dos Lírios, 641'),
+       (20, 'Vinicius Pereira', 'vinicius@gmail.com', 'hash123', '(45)98888-1020', 'Rua Goiás, 511');
 
 INSERT INTO produtos (id, nome, descricao, setor, preco, validade, imagem, peso, marca, quantidade_estoque, status_estoque)
 VALUES (1, 'Maçã Gala', 'Maçã fresca selecionada', 'Hortifruti', 8.99, '2026-08-10', 'maca.jpeg', '1kg', 'Campo Verde', 80, 'Esgotado'),
