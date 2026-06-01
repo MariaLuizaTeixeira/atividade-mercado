@@ -112,3 +112,58 @@ body,input,button,p{
     text-decoration: none;
     color: black;
 }
+
+.categories-container {
+    width: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #dfe7e2;
+    border-bottom: 1px solid #dfe7e2;
+    padding: 18px 40px;
+    overflow-x: hidden;
+    margin-bottom: 5px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-products: center;
+
+    gap: 48px;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    overflow-x: hidden;
+}
+
+.category {
+    display: flex;
+    align-products: center;
+    gap: 8px;
+
+    border: none;
+    background: transparent;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #1f2937;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.category:hover {
+    color: #16a34a;
+    transform: translateY(-1px);
+}
+
+.category-icon {
+    font-size: 10px;
+}

@@ -39,4 +39,22 @@
             </div>
         </div>
     </div>
+
+    <div class="categories-container">
+        <div class="categories">
+            <button class="category">🧼 Higiene e Limpeza</button>
+
+            <button class="category">🍎 Hortifruti</button>
+
+            <button class="category">🥩 Açougue e Peixaria</button>
+
+            <button class="category">🥖 Padaria e confeitaria</button>
+
+            <button class="category">🍶 Fríos e Laticínios</button>
+
+            <button class="category">🧃 Bebidas</button>
+
+            <button class="category">🥫 Mercearia</button>
+        </div>
+    </div>
 </header>
