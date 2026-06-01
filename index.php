@@ -1,2 +1,2 @@
 <?php
-header("location: ./view/sign-up.php");
+header("location: ./view/auth/login.php");
