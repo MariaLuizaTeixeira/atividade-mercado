@@ -15,23 +15,7 @@ $produtos = $produtoController->listarAleatoriamente();
 </head>
 <body>
     <div class="page-container">
-        <div class="categories-container">
-            <div class="categories">
-                <button class="category">🧼 Higiene e Limpeza</button>
 
-                <button class="category">🍎 Hortifruti</button>
-
-                <button class="category">🥩 Açougue e Peixaria</button>
-
-                <button class="category">🥖 Padaria e confeitaria</button>
-
-                <button class="category">🍶 Fríos e Laticínios</button>
-
-                <button class="category">🧃 Bebidas</button>
-
-                <button class="category">🥫 Mercearia</button>
-            </div>
-        </div>
 
         <div class="hero-banner-container">
             <div class="hero-banner-texts">
@@ -82,7 +66,7 @@ $produtos = $produtoController->listarAleatoriamente();
                                 R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
                             </span>
 
-                            <a href="#" class="buy-product-button">+</a>
+                            <a href="../products/product/product.php?id=<?= $produto['id'] ?>" class="buy-product-button">+</a>
                         </div>
                     </div>
                 </div>
