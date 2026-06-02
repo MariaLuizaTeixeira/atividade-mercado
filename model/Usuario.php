@@ -10,6 +10,14 @@ class Usuario {
     protected string $telefone;
     private string $endereco;
 
+    public function __construct(string $primeiroNome, string $sobrenome, string $email, string $senha, string $telefone, string $endereco) {
+        $this->nomeCompleto = $primeiroNome . " " . $sobrenome;
+        $this->email = $email;
+        $this->senha = $senha;
+        $this->telefone = $telefone;
+        $this->endereco = $endereco;
+    }
+
     public function getTelefone(): string
     {
         return $this->telefone;

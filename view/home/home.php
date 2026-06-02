@@ -8,71 +8,78 @@ include_once(__DIR__ . '/../../controller/ProdutoController.php');
 
 $produtoController = new ProdutoController();
 $produtos = $produtoController->listarAleatoriamente();
+
+$idUsuario = $_GET['usuario'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="../../assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
 </head>
+
 <body>
-    <div class="page-container">
+    <div class="container-fluid p-0">
+        <section class="py-5" style="background:#FCBC64; min-height:82vh;">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <h1 class="display-3 fw-bold text-white">Arraiá de Ofertas chegou!</h1>
 
+                        <p class="lead text-white opacity-75 my-4">
+                            Entre no clima da Festa Junina com descontos especiais em comidas típicas,
+                            bebidas, doces e ingredientes para o seu arraial. Aproveite promoções
+                            exclusivas por tempo limitado e receba tudo no conforto da sua casa.
+                        </p>
 
-        <div class="hero-banner-container">
-            <div class="hero-banner-texts">
-                <div class="hero-banner-title">
-                    <h1>Arraiá de Ofertas chegou!</h1>
-                </div>
-
-                <div class="hero-banner-paragraph">
-                    <p>Entre no clima da Festa Junina com descontos especiais em comidas típicas, bebidas, doces e ingredientes para o seu arraial. Aproveite promoções exclusivas por tempo limitado e receba tudo no conforto da sua casa.</p>
-                </div>
-
-                    <div class="hero-banner-button">
-                        <button>Ver ofertas</button>
+                        <button class="btn btn-light btn-lg rounded-pill px-4 fw-bold">Ver ofertas</button>
                     </div>
-            </div>
 
-            <div class="hero-banner-image">
-                <img src="../../assets/images/pratos-festa-junina.jpg">
-            </div>
-        </div>
-
-        <div class="featured-products-container">
-            <div class="featured-products-text">
-                <div class="featured-products-title">
-                    <h3>Mais Pedidos</h3>
-                </div>
-
-                <div class="featured-products-descriptions">
-                    <p>Os produtos favoritos para receber rápido na sua casa.</p>
+                    <div class="col-lg-6 text-center">
+                        <img src="/assets/images/pratos-festa-junina.jpg" alt="Arraiá de Ofertas" class="img-fluid rounded-4 shadow">
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="featured-products-content">
-                <?php foreach($produtos as $produto) : ?>
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Mais Pedidos</h2>
 
-                <div class="featured-product-card">
-                    <img src="../../assets/images/produtos/<?= $produto['imagem'] ?>">
+                    <p class="text-secondary">Os produtos favoritos para receber rápido na sua casa.</p>
+                </div>
 
-                    <div class="product-card">
-                        <span class="product-category"><?= $produto['setor'] ?></span>
+                <div class="row g-4">
+                    <?php foreach($produtos as $produto): ?>
+                        <div class="col-sm-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <img src="/assets/images/produtos/<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>"
+                                     class="card-img-top" style="height:220px; object-fit:cover;">
 
-                        <h2><?= $produto['nome'] ?></h2>
+                                <div class="card-body d-flex flex-column">
+                                    <span class="text-uppercase text-secondary small fw-semibold">
+                                        <?= $produto['setor'] ?>
+                                    </span>
 
-                        <p class="product-description"><?= $produto['descricao'] ?></p>
+                                    <h5 class="fw-bold mt-2"><?= $produto['nome'] ?></h5>
 
-                        <div class="product-footer">
-                            <span class="product-price">
-                                R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
-                            </span>
+                                    <p class="text-secondary flex-grow-1"><?= $produto['descricao'] ?></p>
 
-                            <a href="../products/product/product.php?id=<?= $produto['id'] ?>" class="buy-product-button">+</a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                            <span class="fs-4 fw-bold">
+                                                R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                                            </span>
+
+                                        <a href="/view/products/product/product.php?usuario=<?= $idUsuario ?>&produto=<?= $produto['id'] ?>"
+                                           class="btn btn-success fw-bold">+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 
