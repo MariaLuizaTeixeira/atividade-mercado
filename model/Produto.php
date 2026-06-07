@@ -1,7 +1,7 @@
 <?php
 
 namespace Model;
-use Cassandra\Date;
+use DateTime;
 use Enums\Setor;
 use Enums\StatusEstoque;
 
@@ -11,7 +11,7 @@ class Produto {
     private string $descricao;
     private Setor $setor;
     private float $preco;
-    private Date $validade;
+    private string $validade;
     private string $peso;
     private string $marca;
     private string $quantidadeEstoque;
@@ -90,12 +90,12 @@ class Produto {
         return $this;
     }
 
-    public function getValidade(): Date
+    public function getValidade(): string
     {
         return $this->validade;
     }
 
-    public function setValidade(Date $validade): void
+    public function setValidade(string $validade): void
     {
         $this->validade = $validade;
     }
