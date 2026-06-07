@@ -22,9 +22,27 @@ class ProdutoDAO {
     }
 
     public function criar(Produto $produto): void {
-        $sql = "INSERT INTO produtos (id, nome, descricao, setor, preco, validade, imagem, peso, marca, quantidade_estoque, status_estoque) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $sql = "INSERT INTO produtos
+            (nome, descricao, setor, preco, validade,
+             imagem, peso, marca, quantidade_estoque,
+             status_estoque)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$produto->getId(), $produto->getNome()], $produto->getDescricao(), $produto->getSetor(), $produto->getPreco(), $produto->getValidade(), $produto->getImagem(), $produto->getPeso(), $produto->getMarca(), $produto->getQuantidadeEstoque(), $produto->getStatus());
+
+        $stm->execute([
+            $produto->getNome(),
+            $produto->getDescricao(),
+            $produto->getSetor()->value,
+            $produto->getPreco(),
+            $produto->getValidade(),
+            $produto->getImagem(),
+            $produto->getPeso(),
+            $produto->getMarca(),
+            $produto->getQuantidadeEstoque(),
+            $produto->getStatus()->value
+        ]);
     }
 
     public function deletar(int $id): void {
