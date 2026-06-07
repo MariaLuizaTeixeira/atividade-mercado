@@ -1,15 +1,14 @@
 <?php
 
 namespace Enums;
-enum Setor {
-    case HigieneLimpeza;
-    case Hortifruti;
-    case AcouguePeixaria;
-    case PadariaConfeitaria;
-    case FriosLaticinios;
-    case Congelados;
-    case Bebidas;
-    case Mercearia;
-}
 
-?>
+enum Setores: string {
+    case HigieneLimpeza = 'Higiene e Limpeza';
+    case Hortifruti = 'Hortifruti';
+    case AcouguePeixaria = 'Açougue E Peixaria';
+    case PadariaConfeitaria = 'Padaria e Confeitaria';
+    case FriosLaticinios = 'Frios e Laticínios';
+    case Congelados = 'Congelados';
+    case Bebidas = 'Bebidas';
+    case Mercearia = 'Mercearia';
+}
