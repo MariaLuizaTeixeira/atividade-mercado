@@ -2,26 +2,28 @@
 
 namespace Mapper;
 use Model\Usuario;
+use UsuarioUtil;
 
 require __DIR__ . "/../model/Usuario.php";
+require __DIR__ . "/../util/UsuarioUtil.php";
 
 class UsuarioMapper {
-    public function arrayParaUsuario(array $dados): Usuario {
-        return new Usuario($dados['primeiroNome'], $dados['sobrenome'], $dados['email'], $dados['senha'], $dados['telefone'], $dados['endereco']);
+    public static function arrayParaUsuario(array $dados): Usuario {
+        return new Usuario($dados['primeiro_nome'], $dados['sobrenome'], $dados['email'], $dados['senha_hash'], $dados['telefone'], $dados['endereco']);
     }
 
-    public function bancoParaUsuario(array $dados): Usuario {
-        $partes = explode(" ", $dados['nome_completo']);
-        $primeiroNome = $partes[0];
-        $sobrenome = implode(" ", array_slice($partes, 1));
-
-        return new Usuario(
-            $primeiroNome,
-            $sobrenome,
+    public static function bancoParaUsuario(array $dados): Usuario {
+        $usuario = new Usuario(
+            UsuarioUtil::getPrimeiroNome($dados['nome_completo']),
+            UsuarioUtil::getSobrenome($dados['nome_completo']),
             $dados['email'],
             $dados['senha_hash'],
             $dados['telefone'],
             $dados['endereco']
         );
+
+        $usuario->setId($dados['id']);
+        
+        return $usuario;
     }
 }
