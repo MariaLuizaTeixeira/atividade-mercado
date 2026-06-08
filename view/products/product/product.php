@@ -8,6 +8,7 @@ include_once(__DIR__ . '/../../../controller/ProdutoController.php');
 $produtoController = new ProdutoController();
 
 $idProduto = $_GET['produto'];
+$idUsuario = $_GET['usuario'];
 
 $produto = $produtoController->acharPorId($idProduto);
 ?>
@@ -27,6 +28,7 @@ $produto = $produtoController->acharPorId($idProduto);
             <div class="col-lg-6">
                 <form action="/util/adicionarAoCarrinho.php" method="POST">
                     <input type="hidden" name="produto_id" value="<?= $produto['id'] ?>">
+                    <input type="hidden" name="usuario_id" value="<?= $idUsuario ?>">
 
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4">
