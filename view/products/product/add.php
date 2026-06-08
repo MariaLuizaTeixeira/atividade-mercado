@@ -6,7 +6,7 @@ include_once __DIR__ . '/../../components/header.php';
 include_once __DIR__ . '/../../layouts/header.php';
 require_once "../../../controller/ProdutoController.php";
 require_once "../../../model/Produto.php";
-require_once "../../../model/enums/Setor.php";
+require_once "../../../model/enums/Setores.php";
 require_once "../../../model/enums/StatusEstoque.php";
 
 use Controller\ProdutoController;
