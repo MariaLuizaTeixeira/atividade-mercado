@@ -17,6 +17,8 @@ $senha = $_POST['senha'];
 
 $usuario = $usuarioDAO->encontrarPorEmail($email);
 if ($usuarioController->verificarCredenciais($email, $senha)) {
+    session_start();
+    $_SESSION['usuario_id'] = $usuario['id'];
     header("Location: ".BASE_URL."view/home/home.php");
     exit;
 
