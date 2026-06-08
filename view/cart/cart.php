@@ -1,26 +1,112 @@
 <?php
 
-use Model\Carrinho;
+use Util\Conexao;
 
-include_once __DIR__ . '/../components/header.php';
-include_once __DIR__ . '/../layouts/header.php';
-include_once __DIR__ . '/../../model/carrinho.php';
+require_once __DIR__ . '/../../util/Conexao.php';
 
-$carrinho = new Carrinho();
+$conexao = Conexao::getConexao();
+
+$usuarioId = $_GET['usuario'];
+
+$sql = "SELECT * FROM carts
+        WHERE user_id = ?";
+
+$stm = $conexao->prepare($sql);
+$stm->execute([$usuarioId]);
+
+$cart = $stm->fetch();
+
+$produtos = [];
+
+if ($cart) {
+
+    $sql = "
+        SELECT
+            p.*,
+            ci.quantity
+        FROM cart_items ci
+        INNER JOIN produtos p
+            ON p.id = ci.product_id
+        WHERE ci.cart_id = ?
+    ";
+
+    $stm = $conexao->prepare($sql);
+    $stm->execute([$cart['id']]);
+
+    $produtos = $stm->fetchAll();
+}
+
+$total = 0;
 ?>
 
-<head>
-    <link rel="stylesheet" href="../../assets/css/cart.css">
-</head>
+<div class="container py-5">
 
-<body>
-    <div class="page-container">
-        <div class="cart-container">
-            <div class="cart-title">
-                <h1>Seu carrinho</h1>
-                <p>([x] items)</p>
-            </div>
-        </div>
+    <h1 class="mb-4">Meu Carrinho</h1>
+
+    <table class="table table-bordered">
+
+        <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Subtotal</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <?php foreach($produtos as $produto):
+
+            $subtotal =
+                    $produto['preco']
+                    * $produto['quantity'];
+
+            $total += $subtotal;
+            ?>
+
+            <tr>
+                <td><?= $produto['nome'] ?></td>
+
+                <td>
+                    R$ <?= number_format(
+                            $produto['preco'],
+                            2,
+                            ',',
+                            '.'
+                    ) ?>
+                </td>
+
+                <td><?= $produto['quantity'] ?></td>
+
+                <td>
+                    R$ <?= number_format(
+                            $subtotal,
+                            2,
+                            ',',
+                            '.'
+                    ) ?>
+                </td>
+            </tr>
+
+        <?php endforeach; ?>
+
+        </tbody>
+
+    </table>
+
+    <div class="text-end">
+
+        <h3>
+            Total:
+            R$ <?= number_format(
+                    $total,
+                    2,
+                    ',',
+                    '.'
+            ) ?>
+        </h3>
+
     </div>
 
-</body>
+</div>
