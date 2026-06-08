@@ -262,4 +262,5 @@ if(isset($_POST['nome'])) {
         <?= $msgErro ?>
     </div>
 <?php endif; ?>
+<?php include_once '../../layouts/footer.php'; ?>
 </body>
