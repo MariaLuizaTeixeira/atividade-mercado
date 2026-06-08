@@ -40,4 +40,11 @@ class ProdutoDAO {
         $stm->execute([$id]);
         return $stm->fetch();
     }
+
+    public function acharPorSetor(string $setor): array {
+        $sql = "SELECT * FROM produtos WHERE setor = ?";
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$setor]);
+        return $stm->fetchAll();
+    }
 }

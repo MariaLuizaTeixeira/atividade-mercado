@@ -28,4 +28,8 @@ class ProdutoController {
     public function acharPorId(int $id): array {
         return $this->produtoDAO->acharPorId($id);
     }
+
+    public function acharPorSetor(string $setor): array {
+        return $this->produtoDAO->acharPorSetor($setor);
+    }
 }
