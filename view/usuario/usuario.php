@@ -2,14 +2,8 @@
 
 use Controller\UsuarioController;
 
-include_once __DIR__ . '/../../controller/UsuarioController.php';
 include_once __DIR__ . '/../components/header.php';
 include_once __DIR__ . '/../layouts/header.php';
-
-$idUsuario = $_GET['usuario'];
-
-$usuarioController = new UsuarioController();
-$usuario = $usuarioController->acharPorId($idUsuario);
 ?>
 
 <body class="bg-light">
@@ -26,7 +20,7 @@ $usuario = $usuarioController->acharPorId($idUsuario);
                      height="120">
 
                 <h2 class="mt-3 fw-bold">
-                    <?= $usuario['nome_completo'] ?>
+                    <?= $usuario->getNomeCompleto(); ?>
                 </h2>
 
                 <p class="text-muted">
@@ -44,7 +38,7 @@ $usuario = $usuarioController->acharPorId($idUsuario);
                 <input
                         type="text"
                         class="form-control"
-                        value="<?= $usuario['email'] ?>"
+                        value="<?= $usuario->getEmail(); ?>"
                         readonly>
             </div>
 
@@ -56,7 +50,7 @@ $usuario = $usuarioController->acharPorId($idUsuario);
                 <input
                         type="text"
                         class="form-control"
-                        value="<?= $usuario['telefone'] ?>"
+                        value="<?= $usuario->getTelefone(); ?>"
                         readonly>
             </div>
 
@@ -68,15 +62,16 @@ $usuario = $usuarioController->acharPorId($idUsuario);
                 <input
                         type="text"
                         class="form-control"
-                        value="<?= $usuario['endereco'] ?>"
+                        value="<?= $usuario->getEndereco(); ?>"
                         readonly>
             </div>
         </div>
+        
+        <a href="view/products/product/add.php"
+        class="btn btn-warning btn-lg fw-bold">
+            Cadastrar Produto
+        </a>
     </div>
-    <a href="/view/products/product/add.php"
-       class="btn btn-warning btn-lg fw-bold">
-        Cadastrar Produto
-    </a>
 </div>
-<?php include_once '../layouts/footer.php'; ?>
+<?php include_once __DIR__ . '/../layouts/footer.php'; ?>
 </body>
