@@ -81,7 +81,7 @@ if (isset($_GET['visualizacao']))
             </div>
         </section>
 
-        <section class="py-5">
+        <section id="produtos" class="py-5">
             <div class="container">
                 <div class="text-center mb-5">
                     <h2 class="fw-bold">Mais Pedidos</h2>
@@ -99,7 +99,7 @@ if (isset($_GET['visualizacao']))
                     </a>
                 </div>
 
-                <div id="produtos" class="row g-4">
+                <div class="row g-4">
                     <?php if ($visualizacao == "card"): ?>
                         <?php foreach($produtos as $produto): ?>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
