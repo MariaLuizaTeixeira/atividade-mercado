@@ -15,7 +15,7 @@ class ProdutoDAO {
     }
     
     public function listarAleatoriamente(): array {
-        $sql = "SELECT * FROM produtos ORDER BY RANDOM() LIMIT 15";
+        $sql = "SELECT * FROM produtos ORDER BY RAND() LIMIT 15";
         $stm = $this->conexao->prepare($sql);
         $stm->execute();
         return $stm->fetchAll();
@@ -57,5 +57,12 @@ class ProdutoDAO {
         $stm = $this->conexao->prepare($sql);
         $stm->execute([$id]);
         return $stm->fetch();
+    }
+
+    public function acharPorSetor(string $setor): array {
+        $sql = "SELECT * FROM produtos WHERE setor = ?";
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$setor]);
+        return $stm->fetchAll();
     }
 }

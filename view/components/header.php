@@ -1,6 +1,10 @@
+<?php
+require_once __DIR__ . "../../../util/config.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <base href="<?= BASE_URL ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercado</title>

@@ -12,7 +12,7 @@ include_once __DIR__ . '/../components/header.php';
     <div class="container-fluid min-vh-100">
 
         <div class="d-flex justify-content-end py-3 px-4">
-            <img src="/assets/images/logo.png" style="width:70px">
+            <img src="assets/images/logo.png" style="width:70px">
         </div>
 
         <div class="container">
@@ -20,7 +20,7 @@ include_once __DIR__ . '/../components/header.php';
                 <div class="col-lg-5">
                     <div class="bg-light rounded p-4 text-center">
                         <img
-                            src="/assets/images/grocery-bag.webp"
+                            src="assets/images/grocery-bag.webp"
                             class="img-fluid"
                             alt="Cadastro">
                     </div>
@@ -32,7 +32,7 @@ include_once __DIR__ . '/../components/header.php';
 
                         <p class="text-muted mb-4">As melhores ofertas estão a um cadastro de distância!</p>
 
-                        <form method="POST" action="/util/sign-up.php" onsubmit="return validarForm()">
+                        <form method="POST" action="util/sign-up.php" onsubmit="return validarForm()">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label">Primeiro Nome</label>
@@ -77,7 +77,7 @@ include_once __DIR__ . '/../components/header.php';
                                         <div class="invalid-feedback">Campo obrigatório</div>
 
                                         <button type="button" class="btn btn-outline-secondary">
-                                            <img src="/assets/images/icons/visibility-off.svg">
+                                            <img src="assets/images/icons/visibility-off.svg">
                                         </button>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@ include_once __DIR__ . '/../components/header.php';
                                         <div class="invalid-feedback">Campo obrigatório</div>
 
                                         <button type="button" class="btn btn-outline-secondary">
-                                            <img src="/assets/images/icons/visibility-off.svg">
+                                            <img src="assets/images/icons/visibility-off.svg">
                                         </button>
                                     </div>
                                 </div>
@@ -120,13 +120,13 @@ include_once __DIR__ . '/../components/header.php';
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <button type="button" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2">
-                                        <img src="/assets/images/google-logo.webp" width="20">Google
+                                        <img src="assets/images/google-logo.webp" width="20">Google
                                     </button>
                                 </div>
 
                                 <div class="col-md-6">
                                     <button type="button" class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2">
-                                    <img src="/assets/images/apple-logo.png" width="20">Apple
+                                    <img src="assets/images/apple-logo.png" width="20">Apple
                                     </button>
                                 </div>
                             </div>
@@ -137,5 +137,5 @@ include_once __DIR__ . '/../components/header.php';
         </div>
     </div>
 
-    <script src="/util/Validacao.js"></script>
+    <script src="util/Validacao.js"></script>
 </body>

@@ -5,7 +5,7 @@ use DAO\CarrinhoDAO;
 use Model\Carrinho;
 use Model\Usuario;
 
-require_once __DIR__ . '/../DAO/CarrinhoDAO.php';
+require_once __DIR__ . '/../dao/CarrinhoDAO.php';
 
 class CarrinhoController {
     private CarrinhoDAO $carrinhoDAO;

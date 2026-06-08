@@ -4,7 +4,7 @@ namespace Controller;
 use DAO\ProdutoDAO;
 use Model\Produto;
 
-require_once __DIR__ . '/../DAO/ProdutoDAO.php';
+require_once __DIR__ . '/../dao/ProdutoDAO.php';
 
 class ProdutoController {
     private ProdutoDAO $produtoDAO;
@@ -27,5 +27,9 @@ class ProdutoController {
 
     public function acharPorId(int $id): array {
         return $this->produtoDAO->acharPorId($id);
+    }
+
+    public function acharPorSetor(string $setor): array {
+        return $this->produtoDAO->acharPorSetor($setor);
     }
 }
