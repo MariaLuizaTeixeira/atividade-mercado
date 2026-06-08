@@ -15,7 +15,7 @@ class ProdutoDAO {
     }
     
     public function listarAleatoriamente(): array {
-        $sql = "SELECT * FROM produtos ORDER BY RANDOM() LIMIT 15";
+        $sql = "SELECT * FROM produtos ORDER BY RAND() LIMIT 15";
         $stm = $this->conexao->prepare($sql);
         $stm->execute();
         return $stm->fetchAll();
