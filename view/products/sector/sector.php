@@ -90,11 +90,11 @@ if (isset($_GET['visualizacao']))
                 </div>
 
                 <div class="text-center mb-4">
-                    <a href="view/products/category/category.php?visualizacao=card&setor=<?= $_GET['setor'] ?>#produtos" class="btn <?= $visualizacao == 'card' ? 'btn-success' : 'btn-outline-success' ?> me-2">
+                    <a href="view/products/sector/sector.php?visualizacao=card&setor=<?= $_GET['setor'] ?>#produtos" class="btn <?= $visualizacao == 'card' ? 'btn-success' : 'btn-outline-success' ?> me-2">
                         Cards
                     </a>
 
-                    <a href="view/products/category/category.php?visualizacao=tabela&setor=<?= $_GET['setor'] ?>#produtos" class="btn <?= $visualizacao == 'tabela' ? 'btn-success' : 'btn-outline-success' ?>">
+                    <a href="view/products/sector/sector.php?visualizacao=tabela&setor=<?= $_GET['setor'] ?>#produtos" class="btn <?= $visualizacao == 'tabela' ? 'btn-success' : 'btn-outline-success' ?>">
                         Tabela
                     </a>
                 </div>
