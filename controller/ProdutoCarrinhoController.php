@@ -21,6 +21,8 @@ class ProdutoCarrinhoController {
         return $this->produtoCarrinhoDAO->acharProdutoPorId($cartId, $produtoId);
     }
 
+    public function salvarProduto(int $cartId, int $produtoId, int $quantidade) {
+        return $this->produtoCarrinhoDAO->salvarProduto($cartId, $produtoId, $quantidade);
     }
 
 }
