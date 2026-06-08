@@ -11,7 +11,7 @@ require_once "../../../model/enums/StatusEstoque.php";
 
 use Controller\ProdutoController;
 use Model\Produto;
-use Enums\Setor;
+use Enums\Setores;
 use Enums\StatusEstoque;
 
 $conexao = Conexao::getConexao();
@@ -78,7 +78,7 @@ if(isset($_POST['nome'])) {
 
         $produto->setNome($nome);
         $produto->setDescricao($descricao);
-        $produto->setSetor(Setor::from($setor));
+        $produto->setSetor(Setores::from($setor));
         $produto->setPreco((float)$preco);
         $produto->setValidade($validade);
         $produto->setImagem($imagem);
