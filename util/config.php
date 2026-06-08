@@ -11,3 +11,4 @@ define("DB_PORT", "3306");
 define("DB_NAME", "mercado");
 define("DB_USER", "root");
 define("DB_PASSWORD", "bancodedados");
+define("BASE_URL", "/atividade-mercado/");
