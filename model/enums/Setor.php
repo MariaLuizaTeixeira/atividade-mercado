@@ -2,7 +2,7 @@
 
 namespace Enums;
 
-enum Setores: string {
+enum Setor: string {
     case HigieneLimpeza = 'Higiene e Limpeza';
     case Hortifruti = 'Hortifruti';
     case AcouguePeixaria = 'Açougue E Peixaria';
