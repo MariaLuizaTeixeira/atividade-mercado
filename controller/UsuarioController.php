@@ -31,4 +31,8 @@ class UsuarioController {
     public function verificarCredenciais(string $email, string $senha): bool {
         return $this->usuarioDAO->verificarCredenciais($email, $senha);
     }
+
+    public function acharPorId(int $id): array {
+        return $this->produtoDAO->acharPorId($id);
+    }
 }
