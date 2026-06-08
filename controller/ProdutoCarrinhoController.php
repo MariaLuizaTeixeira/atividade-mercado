@@ -2,13 +2,24 @@
 
 namespace Controller;
 
-use Model\Produto;
-use Model\ProdutoCarrinho;
+use DAO\ProdutoCarrinhoDAO;
+
+require_once __DIR__ . '/../dao/ProdutoCarrinhoDAO.php';
 
 class ProdutoCarrinhoController {
-    private ProdutoCarrinho $produtoCarrinho;
+    private ProdutoCarrinhoDAO $produtoCarrinhoDAO;
 
-    private function salvar($_POST) {
+    public function __construct(){
+        $this->produtoCarrinhoDAO = new ProdutoCarrinhoDAO();
+    }
+
+    public function listarProdutos($cardId, $produtoId) {
+
+    }
+
+    public function acharProdutoPorId(int $cartId, int $produtoId): ?array {
+        return $this->produtoCarrinhoDAO->acharProdutoPorId($cartId, $produtoId);
+    }
 
     }
 
