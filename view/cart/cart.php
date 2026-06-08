@@ -108,5 +108,5 @@ $total = 0;
         </h3>
 
     </div>
-
+<?php include_once '../layouts/footer.php'; ?>
 </div>
