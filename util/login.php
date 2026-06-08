@@ -17,11 +17,11 @@ $senha = $_POST['senha'];
 
 $usuario = $usuarioDAO->encontrarPorEmail($email);
 if ($usuarioController->verificarCredenciais($email, $senha)) {
-    header("Location: /view/home/home.php?usuario=" . $usuario['id']);
+    header("Location: ".BASE_URL."view/home/home.php");
     exit;
 
 }
 else {
-    header("Location: /view/auth/login.php?erro=1");
+    header("Location: ".BASE_URL."view/auth/login.php?erro=1");
     exit;
 }

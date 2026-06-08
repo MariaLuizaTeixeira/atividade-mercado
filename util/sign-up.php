@@ -27,4 +27,4 @@ $usuario->setId($usuarioArray['id']);
 $carrinhoController->criar($usuario);
 
 
-header("Location: /view/auth/login.php");
+header("Location: ".BASE_URL."view/auth/login.php");
