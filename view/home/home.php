@@ -143,6 +143,7 @@ if (isset($_GET['visualizacao']))
             </div>
         </section>
     </div>
+    <?php include_once '../layouts/footer.php'; ?>
 </body>
 
 
