@@ -60,4 +60,5 @@ $produto = $produtoController->acharPorId($idProduto);
             </div>
         </div>
     </div>
+    <?php include_once '../../layouts/footer.php'; ?>
 </body>
