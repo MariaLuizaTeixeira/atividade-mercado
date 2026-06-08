@@ -13,7 +13,7 @@ $idUsuario = $_GET['usuario'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@ $idUsuario = $_GET['usuario'];
                     </div>
 
                     <div class="col-lg-6 text-center">
-                        <img src="/assets/images/pratos-festa-junina.jpg" alt="Arraiá de Ofertas" class="img-fluid rounded-4 shadow">
+                        <img src="assets/images/pratos-festa-junina.jpg" alt="Arraiá de Ofertas" class="img-fluid rounded-4 shadow">
                     </div>
                 </div>
             </div>

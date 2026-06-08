@@ -21,11 +21,11 @@ $produto = $produtoController->acharPorId($idProduto);
     <div class="container py-5">
         <div class="row g-5 align-items-start">
             <div class="col-lg-6">
-                <img src="/assets/images/produtos/<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>" class="img-fluid rounded-4 shadow">
+                <img src="assets/images/produtos/<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>" class="img-fluid rounded-4 shadow">
             </div>
 
             <div class="col-lg-6">
-                <form action="/util/adicionarAoCarrinho.php" method="POST">
+                <form action="util/adicionarAoCarrinho.php" method="POST">
                     <input type="hidden" name="produto_id" value="<?= $produto['id'] ?>">
 
                     <div class="card border-0 shadow-sm">
