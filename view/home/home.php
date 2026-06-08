@@ -9,8 +9,6 @@ include_once(__DIR__ . '/../../controller/ProdutoController.php');
 $produtoController = new ProdutoController();
 $produtos = $produtoController->listarAleatoriamente();
 
-// echo $idUsuario;
-
 $visualizacao = "card";
 if (isset($_GET['visualizacao']))
     $visualizacao = $_GET['visualizacao'];

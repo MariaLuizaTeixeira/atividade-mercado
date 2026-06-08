@@ -47,9 +47,6 @@ $produtos = $produtoController->acharPorSetor($setor);
 $visualizacao = "card";
 if (isset($_GET['visualizacao']))
     $visualizacao = $_GET['visualizacao'];
-// echo "<pre>";
-// var_dump($produtos);
-// echo "</pre>";
 
 ?>
 
