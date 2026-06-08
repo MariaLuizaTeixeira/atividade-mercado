@@ -47,31 +47,31 @@ $idUsuario = $_SESSION['usuario_id'];
     <div class="border-top border-bottom py-3">
         <div class="container">
             <div class="d-flex justify-content-center flex-wrap gap-4">
-                <a href="view/products/category/category.php?setor=higiene-limpeza">
+                <a href="view/products/sector/sector.php?setor=higiene-limpeza">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🧼 Higiene e Limpeza</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=hortifruti">
+                <a href="view/products/sector/sector.php?setor=hortifruti">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🍎 Hortifruti</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=acougue-peixaria">
+                <a href="view/products/sector/sector.php?setor=acougue-peixaria">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🥩 Açougue e Peixaria</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=padaria-confeitaria">
+                <a href="view/products/sector/sector.php?setor=padaria-confeitaria">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🥖 Padaria e Confeitaria</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=frios-laticinios">
+                <a href="view/products/sector/sector.php?setor=frios-laticinios">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🍶 Frios e Laticínios</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=bebidas">
+                <a href="view/products/sector/sector.php?setor=bebidas">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🧃 Bebidas</button>
                 </a>
 
-                <a href="view/products/category/category.php?setor=mercearia">
+                <a href="view/products/sector/sector.php?setor=mercearia">
                     <button class="btn btn-link text-dark text-decoration-none p-0">🥫 Mercearia</button>
                 </a>
             </div>
