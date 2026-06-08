@@ -8,8 +8,8 @@ require_once __DIR__ . '/../../../controller/ProdutoController.php';
 
 $produtoController = new ProdutoController();
 
-// if (!isset($_GET['setor']))
-//     ;
+if (!isset($_GET['setor']))
+    header("Location: ".BASE_URL."view/home/home.php");
 
 switch ($_GET['setor']) {
     case "higiene-limpeza":
