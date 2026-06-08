@@ -33,6 +33,6 @@ class UsuarioController {
     }
 
     public function acharPorId(int $id): array {
-        return $this->produtoDAO->acharPorId($id);
+        return $this->usuarioDAO->acharPorId($id);
     }
 }
