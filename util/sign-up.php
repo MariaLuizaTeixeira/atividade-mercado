@@ -15,16 +15,14 @@ require_once __DIR__ . "/../mapper/UsuarioMapper.php";
 
 $usuarioController = new UsuarioController();
 $usuarioDAO = new UsuarioDAO();
-$usuarioMapper = new UsuarioMapper();
 $carrinhoController = new CarrinhoController();
 
 $usuarioController->criar($_POST);
 
 $email = $_POST["email"];
 $usuarioArray = $usuarioDAO->encontrarPorEmail($email);
-$usuario = $usuarioMapper->bancoParaUsuario($usuarioArray);
-$usuario->setId($usuarioArray['id']);
-$carrinhoController->criar($usuario);
+$usuario = UsuarioMapper::bancoParaUsuario($usuarioArray);
+$carrinhoController->criar($usuario->getId());
 
 
 header("Location: ".BASE_URL."view/auth/login.php");

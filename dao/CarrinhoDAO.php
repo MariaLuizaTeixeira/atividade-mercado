@@ -1,8 +1,7 @@
 <?php
 
 namespace DAO;
-use Model\Carrinho;
-use Model\Usuario;
+
 use Util\Conexao;
 use PDO;
 
@@ -15,16 +14,29 @@ class CarrinhoDAO {
         $this->conexao = Conexao::getConexao();
     }
 
-    public function criar(Usuario $usuario): void {
+    public function criar(int $usuarioId): void {
         $sql = "INSERT INTO carts (user_id) VALUES (?)";
         $stm = $this->conexao->prepare($sql);
-        $stm->execute([$usuario->getId()]);
+        $stm->execute([$usuarioId]);
     }
 
     public function acharPorId(int $id): array {
-        $sql = "SELECT * FROM carrinhos WHERE id = ?";
+        $sql = "SELECT * FROM carts WHERE id = ?";
         $stm = $this->conexao->prepare($sql);
         $stm->execute([$id]);
         return $stm->fetch();
+    }
+
+    public function acharPorUsuarioId(int $usuarioId): ?array {
+        $sql = "SELECT * FROM carts WHERE user_id = ?";
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$usuarioId]);
+
+        $carrinho = $stm->fetch();
+
+        if ($carrinho)
+            return $carrinho;
+
+        return null;
     }
 }

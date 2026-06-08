@@ -1,12 +1,13 @@
 <?php
 
 require_once __DIR__ . "../../../util/config.php";
+require_once __DIR__ . "../../../model/Usuario.php";
 
 session_start();
-if (!isset($_SESSION['usuario_id']))
+if (!isset($_SESSION['usuario']))
     header("Location: ".BASE_URL."index.php");
 
-$idUsuario = $_SESSION['usuario_id'];
+$usuario = $_SESSION['usuario'];
 ?>
 
 <head>
@@ -32,7 +33,7 @@ $idUsuario = $_SESSION['usuario_id'];
             </form>
 
             <div class="d-flex align-items-center gap-4">
-                <a href="view/profile/user.php" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
+                <a href="view/usuario/usuario.php" class="d-flex align-items-center gap-2 text-decoration-none text-dark">
                     <img src="assets/images/icons/user.svg" width="20" height="20">
                     <span>Conta</span>
                 </a>

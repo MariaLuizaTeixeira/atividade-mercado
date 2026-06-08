@@ -1,21 +1,17 @@
 <?php 
 
 namespace DAO;
-use mapper\UsuarioMapper;
 use Model\Usuario;
 use PDO;
 use Util\Conexao;
 
 include_once __DIR__ . "/../util/Conexao.php";
-include_once __DIR__ . "/../mapper/UsuarioMapper.php";
 
 class UsuarioDAO {
     private PDO $conexao;
-    private UsuarioMapper $usuarioMapper;
 
     public function __construct() {
         $this->conexao = Conexao::getConexao();
-        $this->usuarioMapper = new UsuarioMapper();
     }
     
     public function listar(): array {

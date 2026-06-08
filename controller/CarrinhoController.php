@@ -14,11 +14,15 @@ class CarrinhoController {
         $this->carrinhoDAO = new CarrinhoDAO();
     }
 
-    public function criar(Usuario $usuario): void {
-        $this->carrinhoDAO->criar($usuario);
+    public function criar(int $usuarioId): void {
+        $this->carrinhoDAO->criar($usuarioId);
     }
 
     public function acharPorId(int $id): array {
         return $this->carrinhoDAO->acharPorId($id);
+    }
+
+    public function acharPorUsuarioId(int $usuarioId): ?array {
+        return $this->carrinhoDAO->acharPorUsuarioId($usuarioId);
     }
 }

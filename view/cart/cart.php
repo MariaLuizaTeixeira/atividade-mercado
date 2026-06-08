@@ -1,22 +1,19 @@
 <?php
 
+use Controller\CarrinhoController;
 use Util\Conexao;
 
+
+include_once __DIR__ . '/../components/header.php';
+include_once __DIR__ . '/../layouts/header.php';
 require_once __DIR__ . '/../../util/Conexao.php';
+require_once __DIR__ . '/../../controller/CarrinhoController.php';
 
 $conexao = Conexao::getConexao();
 
-$usuarioId = $_GET['usuario'];
+$carrinhoController = new CarrinhoController();
 
-$sql = "SELECT * FROM carts
-        WHERE user_id = ?";
-
-$stm = $conexao->prepare($sql);
-$stm->execute([$usuarioId]);
-
-$cart = $stm->fetch();
-
-$produtos = [];
+$cart = $carrinhoController->acharPorUsuarioId($usuario->getId());
 
 if ($cart) {
 
@@ -26,7 +23,7 @@ if ($cart) {
             ci.quantity
         FROM cart_items ci
         INNER JOIN produtos p
-            ON p.id = ci.product_id
+            ON p.id = ci.produtos_id
         WHERE ci.cart_id = ?
     ";
 

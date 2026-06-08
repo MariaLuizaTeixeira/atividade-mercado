@@ -5,9 +5,11 @@ error_reporting(E_ALL);
 
 use Controller\UsuarioController;
 use DAO\UsuarioDAO;
+use Mapper\UsuarioMapper;
 
 require_once __DIR__ . "/../controller/UsuarioController.php";
 require_once __DIR__ . "/../dao/UsuarioDAO.php";
+require_once __DIR__ . "/../mapper/UsuarioMapper.php";
 
 $usuarioController = new UsuarioController();
 $usuarioDAO = new UsuarioDAO();
@@ -18,7 +20,9 @@ $senha = $_POST['senha'];
 $usuario = $usuarioDAO->encontrarPorEmail($email);
 if ($usuarioController->verificarCredenciais($email, $senha)) {
     session_start();
-    $_SESSION['usuario_id'] = $usuario['id'];
+    session_destroy();
+    session_start();
+    $_SESSION['usuario'] = UsuarioMapper::bancoParaUsuario($usuario);
     header("Location: ".BASE_URL."view/home/home.php");
     exit;
 
