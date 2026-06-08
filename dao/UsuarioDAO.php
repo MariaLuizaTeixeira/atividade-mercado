@@ -53,4 +53,13 @@ class UsuarioDAO {
 
         return true;
     }
+
+    public function acharPorId(int $id): array {
+        $sql = "SELECT * FROM usuarios WHERE id = ?";
+
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$id]);
+
+        return $stm->fetch();
+    }
 }
