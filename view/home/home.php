@@ -66,8 +66,13 @@ if (isset($_GET['visualizacao']))
                         <?php foreach($produtos as $produto): ?>
                             <div class="col-sm-6 col-lg-4 col-xl-3">
                                 <div class="card h-100 border-0 shadow-sm">
-                                    <img src="assets/images/produtos/<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>"
-                                        class="card-img-top" style="height:220px; object-fit:cover;">
+                                    <?php if (str_contains($produto['imagem'], "http")): ?>
+                                        <img src="<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>"
+                                            class="card-img-top" style="height:220px; object-fit:cover;">
+                                    <?php else: ?>
+                                        <img src="assets/images/produtos/<?= $produto['imagem'] ?>" alt="<?= $produto['nome'] ?>"
+                                            class="card-img-top" style="height:220px; object-fit:cover;">
+                                    <?php endif; ?>
 
                                     <div class="card-body d-flex flex-column">
                                         <span class="text-uppercase text-secondary small fw-semibold">
