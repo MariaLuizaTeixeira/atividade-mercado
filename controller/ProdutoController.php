@@ -4,7 +4,7 @@ namespace Controller;
 use DAO\ProdutoDAO;
 use Model\Produto;
 
-require_once __DIR__ . '/../DAO/ProdutoDAO.php';
+require_once __DIR__ . '/../dao/ProdutoDAO.php';
 
 class ProdutoController {
     private ProdutoDAO $produtoDAO;
