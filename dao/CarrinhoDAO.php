@@ -26,4 +26,17 @@ class CarrinhoDAO {
         $stm->execute([$id]);
         return $stm->fetch();
     }
+
+    public function acharPorUsuarioId(int $usuarioId): ?array {
+        $sql = "SELECT * FROM carts WHERE user_id = ?";
+        $stm = $this->conexao->prepare($sql);
+        $stm->execute([$usuarioId]);
+
+        $carrinho = $stm->fetch();
+
+        if ($carrinho)
+            return $carrinho;
+
+        return null;
+    }
 }
