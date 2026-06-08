@@ -1,76 +1,49 @@
 <?php
 
+use Controller\CarrinhoController;
+use Controller\ProdutoCarrinhoController;
 use Util\Conexao;
 
 require_once __DIR__ . '/../util/Conexao.php';
+require_once __DIR__ . '/../controller/CarrinhoController.php';
+require_once __DIR__ . '/../controller/ProdutoCarrinhoController.php';
 
 $conexao = Conexao::getConexao();
+$carrinhoController = new CarrinhoController();
+$produtoCarrinhoController = new ProdutoCarrinhoController();
 
 $usuarioId = $_POST['usuario_id'];
 $produtoId = $_POST['produto_id'];
 $quantidade = $_POST['quantidade'];
 
-$sql = "SELECT * FROM carts WHERE user_id = ?";
-$stm = $conexao->prepare($sql);
-$stm->execute([$usuarioId]);
 
-$cart = $stm->fetch();
+$cart = $carrinhoController->acharPorUsuarioId($usuarioId);
 
 if (!$cart) {
+    $carrinhoController->criar($usuarioId);
 
-    $sql = "INSERT INTO carts (user_id)
-            VALUES (?)";
-
-    $stm = $conexao->prepare($sql);
-    $stm->execute([$usuarioId]);
-
-    $sql = "SELECT * FROM carts
-            WHERE user_id = ?";
-
-    $stm = $conexao->prepare($sql);
-    $stm->execute([$usuarioId]);
-
-    $cart = $stm->fetch();
+    $cart = $carrinhoController->acharPorUsuarioId($usuarioId);
 }
 
-$cartId = $cart['id'];
-
-$sql = "SELECT * FROM cart_items
-        WHERE cart_id = ?
-        AND product_id = ?";
-
-$stm = $conexao->prepare($sql);
-$stm->execute([$cartId, $produtoId]);
-
-$item = $stm->fetch();
+$item = $produtoCarrinhoController->acharProdutoPorId($cart['id'], $produtoId);
 
 if ($item) {
 
     $sql = "UPDATE cart_items
             SET quantity = quantity + ?
             WHERE cart_id = ?
-            AND product_id = ?";
+            AND produtos_id = ?";
 
     $stm = $conexao->prepare($sql);
     $stm->execute([
         $quantidade,
-        $cartId,
+        $cart['id'],
         $produtoId
     ]);
 
 } else {
-
-    $sql = "INSERT INTO cart_items
-            (cart_id, product_id, quantity)
-            VALUES (?, ?, ?)";
-
-    $stm = $conexao->prepare($sql);
-    $stm->execute([
-        $cartId,
-        $produtoId,
-        $quantidade
-    ]);
+    $produtoCarrinhoController->salvarProduto($cart['id'], $produtoId, $quantidade);
 }
 
-header("Location: /view/cart/cart.php?usuario=" . $usuarioId);
+header("Location: ".BASE_URL."view/cart/cart.php");
 exit;
