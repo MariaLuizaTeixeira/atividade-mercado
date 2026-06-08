@@ -34,7 +34,7 @@ CREATE TABLE carts (
 );
 
 CREATE TABLE cart_items (
-    id             INT NOT NULL,
+    id             INT NOT NULL AUTO_INCREMENT,
     cart_id        INT NOT NULL,
     produtos_id     INT NOT NULL,
     quantity       INT NOT NULL DEFAULT 1,
